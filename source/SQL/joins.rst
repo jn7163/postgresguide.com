@@ -1,12 +1,13 @@
 Joins
 #####
 
-What are they?
+什么是Joins?
 --------------
 
-Joins are when you combine data from two different tables. The means in which you combine them depend on the type of join you use. There's multiple ways to join data, and we'll walk through each of those for starters lets look at an initial example to accomplish and the join that does it.
+Joins 是当你要查询的数据分别在两张不同的表中, 组合的方法取决于使用不用的
+Join类型,有很多种方法可以连接数据，我们将逐个使用一个最初的例子来完成和使用Join.
 
-All of these examples will be based on our example schema:
+所有的这些例子都将基于我们这个schema例子
 
 .. code-block:: sql
 
@@ -20,10 +21,11 @@ All of these examples will be based on our example schema:
    (3 rows)
 
 
-Joining some data
------------------
+连接(Joing)一些数据
+-------------------
 
-Lets start with an example of wanting to find which products have been purchased recently. To do this we'll obviously need data from both our products table and our purchases table. Look at each of the tables to get a better idea of what columns they have:
+让我们以找到最近购买的商品为例开始，为此显然需要的数据从我们的产品表和购买记录
+表中查询, 我们来看看这两张表都有什么字段：
 
 .. code-block:: sql
 
@@ -47,7 +49,9 @@ Lets start with an example of wanting to find which products have been purchased
 	 product_id | integer | 
 	 quantity   | integer |
 
-When two tables are related its done so by keys. We'll explain more on this later, the important part for now is that we can see the `product_id` on purchases is intended to reference the `id` field on products. With this we can now construct our query and retrieve as an example 5 purchages
+当两个表通过某个key建立了连接. 后续我们将会介绍更多, 现在最重要的是我们可以看到
+购买记录表中的 `product_id` 是为了和产品表的 `id` 建立关联关系. 与此我们可以构造
+我们的查询语句比如查询5个购买.
 
 .. code-block:: sql
 

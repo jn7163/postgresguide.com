@@ -1,20 +1,24 @@
-Installing Postgres
+安装 Postgres
 ===================
 
-For Mac
-~~~~~~~
+Mac OSX 用户
+~~~~~~~~~~~~~~
 
-`Postgres App <http://www.postgresapp.com>`_
+- 通过适用于Mac OSX的App `Postgres App <http://www.postgresapp.com>`_
+- 通过Homebrew编译安装
 
-For Ubuntu
-~~~~~~~~~~
+.. code-block:: sh
+
+   brew install postgresql
+
+Ubuntu 用户
+~~~~~~~~~~~~
 
 .. code-block:: sh
 
    sudo apt-get install postgresql
 
-For Windows
-~~~~~~~~~~~
+Windows 用户
+~~~~~~~~~~~~
 
-
-`Windows Installer <http://www.enterprisedb.com/products-services-training/pgdownload#windows>`_
+`Windows 安装包 <http://www.enterprisedb.com/products-services-training/pgdownload#windows>`_

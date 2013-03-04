@@ -1,34 +1,38 @@
-Backup and Restore 
+备份与还原
 ##################
 
-What is it
+这是什么？
 ----------
 
-Hopefully its clear to anyone reading this what backup and restore is in regards to your database. But, in case you're entirely new to databases and even more so computers, a backup is simply a full copy of your database schema and data, with restore being the ability to use that backed up data and load it into your database or another database. 
+希望读此文章的人清楚什么是关于你的数据库的备份与还原. 但是，如果你完全是一个
+新手，备份就是你数据库的完整的Schema和数据, 还原就是通过备份数据还原到你的
+数据库中或者其他数据库中.
 
-Note: Backup and restore is done on an entire database or entire table, and not meant for extracts of data. In that case you would use copy.
+注: 备份和还原是针对整个数据库或者整个表, 而不是为了提取数据, 这种情况下你应该是副本.
 
-Backup
+备份
 ------
 
-`pg_dump <http://www.postgresql.org/docs/8.4/static/app-pgdump.html>`_ is the utility for backing up your database. There are a few key knobs you have when dumping your database. These include:
+`pg_dump <http://www.postgresql.org/docs/8.4/static/app-pgdump.html>`_ 是一个
+用来备份的实用工具, 它提供了很多选项当你备份的时候可以用到.它们包括:
 
-- Plaintext format (readable and large) vs. binary format (unreadable and small) vs. tarball (ideal for restore)
-- All of your database or specific schemas/tables
+- 纯文本格式(可读、文件大) vs. 二进制格式(不可读和很小) vs. 压缩包(理想的还原)
+- 所有你的数据库或者特定schemas或表数据
 
-So lets get started with some backing up - if you need a reminder of your databases you can list them with:
+让我们实用一些备份 - 如果你忘了数据库名你可以进入psql把它们列出来:
 
 .. code-block:: sql
 
     psql -l
 
-Then carry out the dump with:
+然后执行备份:
 
 .. code-block:: sql
 
     pg_dump database_name_here > database.sql
 
-The above will create the plaintext dump of your database. To create a form more suitable you a persistent backup and storage you can use either of the below:
+以上操作将会创建一个纯文本的数据库备份文件. 要创建一个更适合存储的备份可以
+通过以下其中一个命令:
 
 .. code-block:: sql
 
@@ -36,20 +40,21 @@ The above will create the plaintext dump of your database. To create a form more
     pg_dump -Ft database_name_here > database.tar # compressed tarball
 
 
-Restore
+还原
 -------
 
-When restoring, there are a few more options that you'll want to consider:
+在还原的时候， 有一些因素要考虑一下:
 
-- If the database already exists
-- The format of your backup
+- 数据库是否已经存在
+- 备份文件的格式
 
 .. code-block:: sql
 
     pg_restore -Fc database.bak # restore compressed binary format
     pg_restore -Ft database.tar # restore tarball
 
-If your database already exists you only need to run the above. However, if you're creating your database new from the restore you'll want to run a command similar to the following:
+如果你的数据库已经存在你只需要执行以上命令就可以了，但是，如果你要在还原中新建
+数据库你得增加一个参数执行类似于下面的命令:
 
 .. code-block:: sql
 

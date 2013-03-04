@@ -1,10 +1,12 @@
-Querying Data
+查询数据
 #############
 
-Tables
-------
+数据库表
+--------
 
-Within a traditional RDBMS a particular data model will be stored within a table. Data may interact across tables, but we'll cover that later with joins. For now we'll start by viewing the tables that are available. Within Postgres we can do this by running the command `\d`:
+在传统的关系数据库中，特定的数据模型将存储在一个数据表中, 数据可能跨表存储
+和交互, 后面我们会讲到joins. 现在我们来看看当前数据库中有那些表,
+在Postgre中我们可以通过命令 `\\d`:
 
 .. code-block:: sql
 
@@ -17,10 +19,12 @@ Within a traditional RDBMS a particular data model will be stored within a table
     public | users     | table | craig
    (3 rows)
 
-Querying Data
+查询数据
 -------------
 
-Lets start by laying out some data. In this case lets start with our users, this is the first part in constructing a query (knowing where your data is coming from). The next part is examining what data we can query. We can again do this with the `\d' command, though this time we'll append the table name to it:
+首先列出一些数据, 在这里我们从users开始, 这是构建查询的一部分
+(知道你的数据从哪里来). 下一部分是审查有那些数据可以查询. 
+我们再次执行 `\\d` 命令, 这次我们在后面追加一个表名 `\\d users` :
 
 .. code-block:: sql
 
@@ -36,12 +40,15 @@ Lets start by laying out some data. In this case lets start with our users, this
     updated_at | timestamp without time zone | 
     last_login | timestamp without time zone | 
 
-Here we can see we've got a variety of data, lets for starters say we just want the first_name, last_name, and email of users. Now that we know the data we want below we can construct our query:
+在这里我们可以看到有各种数据, 首先我们只想要查询用户的first_name,
+last_name, 和 email这么几个字段信息, 现在我们知道想要的数据通过
+下列信息可以构造查询:
 
-* The table we need to query
-* The data we want from that table
+* 我们想要查询的数据库表
+* 我们想从数据表中查询哪些数据
 
-The syntax for doing this is below, it contains the data you want to retrieve, followed by where its coming from, with a semicolon signaling thats the end of your query:
+下面是执行此操作的语法, 它包含你要查询的字段数据, 从哪里查询, 
+以分号结束查询语句:
 
 .. code-block:: sql
 
@@ -52,12 +59,16 @@ The syntax for doing this is below, it contains the data you want to retrieve, f
     Craig      | Kerstiens | craig.kerstiens@gmail.com
    (1 row)
 
-This is great when we want to pull back all of the data in a table, but with any size-able dataset this is far less feasible. In such cases what we'll want to do is potentially both limit the amount of data we return as well as filter it. First lets start with filtering.
+这是很棒的的我们想要读取数据库表中所有的数据, 但是想读取任何大小
+的数据集是不可行的. 这种情况下我们可能要限制返回的数据量来做过滤.
+嗯, 我们来开始学习过滤.
 
-Filtering Data
+
+过滤数据
 --------------
 
-To filter data you can use a combination of filters. The filter is first initially specified with the `WHERE` condition. An example of any user that has created an account since the start of 2012:
+要过滤数据我们可以使用一个过滤器组合, 通过 `WHERE` 条件来描述一个过滤器,
+例如我们想要查询数据库表中2012年以后创建的所有用户的email：
 
 .. code-block:: sql
 
@@ -65,7 +76,8 @@ To filter data you can use a combination of filters. The filter is first initial
    FROM users
    WHERE created_at >= '2012-01-01'
 
-We can also combine this with other conditions using either the `AND` or the `OR` clause. To find all users that created accounts in January of 2012:
+我们可以使用 `AND` 或者 `OR` 结合其他过滤条件, 例如我们想要查询2012年1月
+份创建的所有用户的:
 
 .. code-block:: sql
 
@@ -73,4 +85,3 @@ We can also combine this with other conditions using either the `AND` or the `OR
    FROM users
    WHERE created_at >= '2012-01-01'
    AND created_at < '2012-02-01'
-

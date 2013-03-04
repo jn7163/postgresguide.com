@@ -3,37 +3,28 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Postgres Guide
+Postgres 指南
 ==============
 
-We here are very big fans of Postgres as a database and believe
-it is often the best database for the job. For many though, working with and
-maintaining Postgres involves a steep learning curve.
-This guide is designed as an aid for beginners and experienced users to
-find specific tips and explore tools available within Postgres.
+我们在这里拥有非常庞大的Postgres数据库用户群, 并且相信它是最好的数据库产品. 对
+许多人来说, 使用和维护Postgres存在一定的学习曲线. 这个指南旨在帮助初学者和有经
+验的用户找到一些特别的技巧和发现一些Postgres内置的工具.
 
-If you want to take the quick & painless approach instead, there are great 
-services available such as `Heroku Postgres <http://postgres.heroku.com>`_.
-
-.. note::
-    This still is still under rapid development. Please send any suggestions
-    (or requests) to craig.kerstiens@gmail.com. If you're interested in helping 
-    to maintain this document please hop over to 
-    `github <https://github.com/craigkerstiens/postgresguide.com>`_ and
-    contribute. To follow updates to the site check out our twitter account 
-    `PostgresGuide <http://www.twitter.com/postgresguide>`_.
+如果你想要采用一个方便快速的方式， 有很多很棒的Postgres服务可以选择
+比如 `Heroku Postgres <http://postgres.heroku.com>`_.
 
 
-Some History
+历史简介
 ~~~~~~~~~~~~
 
-Postgres has gotten much more attention in recent years. It has accelerated its
-pace, meanwhile other RDMS's have slowed in releases. Though 
-`Postgre SQL/PostgreSQL/Postgres <http://www.postgresql.org/>`_ has a very long history in databases, 
-with its very name coming from one of the earliest databases Ingres 
-(Post ingres = Postgres) and its own implementation beginning in `1986 <http://www.postgresql.org/docs/8.4/static/history.html>`_.
+最近几年Postgres的关注度变得越来越高. 它加快了Postgres的发展步伐, 与此同时其他
+的关系数据库系统的发展放缓. 在数据库领域中 
+`Postgre SQL/PostgreSQL/Postgres <http://www.postgresql.org/>`_ 有着非常悠久的
+历史, 它的名字来自于一个最早的数据库系统Ingres (Post ingres = Postgres),
+Postgres的实现始于 `1986 <http://www.pgsqldb.org/pgsqldoc-8.1c/history.html>`_
+年.
 
-Guide:
+指南:
 
 .. toctree::
    :maxdepth: 2

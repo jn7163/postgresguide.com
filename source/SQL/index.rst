@@ -1,4 +1,4 @@
-General SQL
+常规的SQL
 ===========
 
 .. toctree::

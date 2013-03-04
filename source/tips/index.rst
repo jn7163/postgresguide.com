@@ -1,4 +1,4 @@
-Postgres Specific Tips
+Postgres 技巧
 ======================
 
 .. toctree::

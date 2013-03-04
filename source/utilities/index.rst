@@ -1,9 +1,7 @@
-Utilities
+实用工具
 =========
 
-Once you've got Postgres setup and running theres several utilities to 
-familiarize yourself. Understanding these utilities will make you more 
-productive and help you make the most of your time with Postgres.
+一旦你安装好了Postgres并且运行和熟悉了一些实用工具, 掌握这些实用工具将大大的提升你的工作效率和时间.
 
 
 .. toctree::

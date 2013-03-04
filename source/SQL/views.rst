@@ -1,34 +1,30 @@
-Views
-#####
+视图(Views)
+###############
 
-What is a View
+什么是视图？
 --------------
 
-According to `wikipedia <http://en.wikipedia.org/wiki/View_%28database%29>`_
-"a view consists of a stored query accessible as a virtual table in a relational 
-database or a set of documents in a document-oriented database composed of the 
-result set of a query or map and reduce functions."
+根据 `维基百科 <http://en.wikipedia.org/wiki/View_%28database%29>`_
+"一个视图包含的查询可以作为关系数据库中的虚拟表或者是文件数据库中一个查询
+结果或者Map-and-Reduce组成的一个文件集的"
 
-In simpler terms a view is simply a logical table that automatically connects
-the pieces of underlying data. It does not actually duplicate or persist the 
-data as its viewed in a logical form.
+简单来说，视图是简单的自动连接逻辑表的基础数据块. 它实际上并不重复或存在作为
+查看逻辑窗体中的数据.
 
-Why use a View
---------------
-
-Views are useful for many cases. Views are a great way to simplify your 
-data model when providing it to others to work with. Additionally it can 
-simplify working with your data for yourself as well. If you find yourself
-routinely joining two sets of data in a similar way a view may ease the process
-of duplicating that many times.
-
-When working with others not familiar with SQL a view is a great way to provide
-your un-normalized data.
-
-A View in Action
+为什么要使用视图
 ----------------
 
-Lets take an example of some tables:
+视图可用于许多情况. 视图可以简化你的数据模型当你提供给他人使用的时候,同时也
+可以简化你自己对数据的使用. 如果你发现自己经常连接两个数据集以类似的方式
+重复多次那么使用视图可以缓解.
+
+当和其他对SQL不熟悉的人一起工作时使用视图是提供非标准数据的一个好方法.
+
+
+实践
+----------------
+
+让我们看看这个例子中的表:
 
 .. image:: http://f.cl.ly/items/072Q3Y073Z0o413b3N2x/Untitled%202-1.png
    :height: 220
@@ -39,8 +35,7 @@ Lets take an example of some tables:
 .. image:: http://f.cl.ly/items/2I0a2u3z1x1Q0h2t3f1M/Untitled%202.png
    :height: 300
 
-To get your employees and their departments you'd often write a query that looks
-something similar to:
+要获取员工和他们的部门信息往往需要编写一个看上去类似与这样的查询:
 
 .. code-block:: sql
 
@@ -56,9 +51,8 @@ something similar to:
      employees.id = employee_departments.employee_id
      AND departments.id = employee_departments.department_id
 
-In this case its not too complicated, though it does become tedious each time
-you wish to report against employes and their departments. This can be greatly
-simplified by creating a view which will automatically do these joins for you:
+在这里其实不太复杂, 虽然每次它不会特别麻烦当你要获取这些信息的时候, 我们可以
+创建一个视图来大大的简化并将为你自动连接这些数据.
 
 .. code-block:: sql
    
@@ -75,14 +69,14 @@ simplified by creating a view which will automatically do these joins for you:
      employees.id = employee_departments.employee_id
      AND departments.id = employee_departments.department_id
 
-Now you can simply query your new table directly:
+现在你可以简单的直接查询一个新的数据库表:
 
 .. code-block:: sql
 
    SELECT *
    FROM employee_view
 
-And have it yield just as it would with the join above:
+并且它会产生和上面查询一样的的数据:
 
 .. code-block:: sql
 
@@ -92,5 +86,3 @@ And have it yield just as it would with the join above:
    Johnson      40000    Marketing
    Williams     37000    Accounting
    Smith        55000    Sales
- 
-

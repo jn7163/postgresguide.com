@@ -1,15 +1,15 @@
-About
+关于
 =====
 
-`Postgres Guide (http://www.postgresguide.com) <http://www.postgresguide.com>`_ 
-is intended to be a resource for both novice and knowledgable users of Postgres. 
-It intends to cover guides on:
+`Postgres 指南中文版 (http://www.postgresguide.com) <http://www.postgresguide.com>`_ 
+目的是成为Postgres用户的学习资源.
+它将涵盖的如下指南:
 
-* Getting Postgres setup
-* Creating and maintaining the database
-* Means for accessing your data
-* Special features within Postgres specifically
+* 安装Postgres
+* 创建和维护数据库
+* 访问你的数据的方法
+* 具体的Postgres内置特性
 
-  - Window Functions
-  - Common Table Expressions
-  - Extensions
+  - 窗口（window）函数
+  - 公共表表达式
+  - 扩展

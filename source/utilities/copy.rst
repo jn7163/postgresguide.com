@@ -1,45 +1,44 @@
-Copy
-####
+复制
+######
 
-What is copy
+什么是复制?
 ------------
 
-Postgres ships with several great utilities for moving your data around. The
-obvious ones are pg_dump and pg_restore for of course database backups and 
-restores. A similar utility thats far less talked about, but equally as 
-valuable is Postgres's copy utility. Copy allows you to do `copy` data into and
-out of tables in your database. It supports several modes including:
+Postgres 附带了几个强大的实用工具用来移动你的数据. 明显的pg_dump 和 pg_restore
+分别是用来对数据库备份和还原. 一个类似的实用工具我们谈的比较少但是同样很有价值
+它就是Postgres的copy工具. 复制允许你使用 `copy` 命令复制数据到数据库外面.它支持
+的模式有:
 
-  - binary
-  - tab delimited
-  - csv delimited
+  - 二进制
+  - tab 分割
+  - csv 分割
 
-Whether its for bulk data loading for testing, doing some light weight ETL, or
-simply grabbing a data extract to send to someone its a utility every developer
-will want to utilize at some point.
+无论是批量数据加载测试，做一些轻量级的数据转换，或者是提取一些数据发给某个人, 
+每个开发人员都在利用它的一些点.
 
-Copy in Action
+实践
 --------------
 
-Extracting all employees to a tab delimited file:
+提取员工表的所有字段数据到制表符分割的文件中:
 
 .. code-block:: sql
 
    \copy (SELECT * FROM employees) TO '~/employees.tsv';
 
-Extracting all employees to a csv delimited file:
+提取员工表的所有字段数据到csv格式文件中:
 
 .. code-block:: sql
 
    \copy (SELECT * FROM employees) TO '~/employees.csv' WITH (FORMAT CSV);
 
-Extracting all employees to a binary file (note the quotes around the word Binary):
+
+提取员工表的所有字段数据到一个二进制文件(注意Binary前后的引号):
 
 .. code-block:: sql
 
    \copy (SELECT * FROM employees) TO '~/employees.dat' WITH (FORMAT "Binary");
 
-And for loading data into a table the equivilant for each of the above: 
+同样的加载数据到数据库表中:
 
 .. code-block:: sql
 
