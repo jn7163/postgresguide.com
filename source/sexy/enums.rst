@@ -1,13 +1,13 @@
-Enumerated Data Types
-####################
+枚举类型(Enum)
+==================
 
-Postgres provides enumerated types or ‘enums’ if you need to make sure some column values need to have a specific value out of a set of values. For eg, if you need a column to only have values ‘Email’, ‘SMS’ and ‘Phone’, you can do this by first defining an enumerated type:
+Postgres提供了一个枚举类型用来保存一个枚举值, 比如你需要有一个字段只保存 'Email'、'SMS' and 'Phone', 你可以在第一次的时候定义它.
 
 .. code-block:: sql
 
    CREATE TYPE e_contact_method AS ENUM ('Email', 'Sms', 'Phone')
 
-Then associate the enum to the column that needs to have a fixed set of values.
+然后创建表的时候就可以使用这个类型
 
 .. code-block:: sql
 
@@ -17,7 +17,7 @@ Then associate the enum to the column that needs to have a fixed set of values.
       value text
    )
 
-Using enums
+使用枚举类型
 -------------
 
 .. code-block:: sql
@@ -31,7 +31,7 @@ Using enums
    Jeff         | Email          | jeff@mail.com
    (1 row)
 
-You cannot insert a value for the contact_method column thats not in e_contact_method enum.
+你不能插入一个 `e_contact_method` 不包含的值到字段 `contact_method` 中
 
 .. code-block:: sql
 
@@ -39,10 +39,10 @@ You cannot insert a value for the contact_method column thats not in e_contact_m
    ERROR:  invalid input value for enum e_contact_method: "Fax"
    LINE 1: INSERT INTO contact_method_info VALUES ('Jeff', 'Fax', '4563...
 
-Viewing/Modifying enum values
+查看和修改枚举类型的值
 ------------------------------
 
-You can view the list of values in an enum:
+你可以把枚举类型中的值都列出来:
 
 .. code-block:: sql
 
@@ -56,7 +56,7 @@ You can view the list of values in an enum:
    (3 rows)
 
 
-You can append values to existing enums:
+你也可以追加枚举值到某个已经存在的枚举中:
 
 .. code-block:: sql
 
@@ -73,7 +73,7 @@ You can append values to existing enums:
    e_contact_method | Facebook
    (4 rows)
 
-Values can be added anywhere in between as enums have a sort order which is the order in which the value was inserted, and it is preserved.
+枚举值可以在任意位置插入因为它是顺序排列的
 
 .. code-block:: sql
 
@@ -91,4 +91,4 @@ Values can be added anywhere in between as enums have a sort order which is the 
    e_contact_method | Facebook  |             4
    (5 rows)
 
-At the time of this writing, Postgres does not provide a way to remove values from enums.
+到目前为止，Postgres没有提供从枚举中删除值的方法. 

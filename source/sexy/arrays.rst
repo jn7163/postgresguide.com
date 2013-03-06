@@ -1,9 +1,9 @@
-Arrays
-######
+数组(Arrays)
+================
 
-Postgres allows columns to be defined as arrays of variable length. The type of the array can be an inbuilt type, a user-defined type or an enumerated type.
+Postgres 允许把字段定义为可变长度的数组. 数据的类型可以是内置的类型, 用户自定义的类型或者枚举类型.
 
-Declaring array columns in tables:
+在创建表时声明数组字段:
 
 .. code-block:: sql
 
@@ -13,9 +13,9 @@ Declaring array columns in tables:
       members text[]
    )
 
-The above command will create a table rock_band with a text type column for the name of the band, and a column ‘members’ with a one-dimesional array to represent names of the members.
+上面的语句将创建一张 `rock_band` 表, 它定义了一个text类型的字段 `name` 来表示乐队的名称, 还有一个 `members` 字段以二维数组的类型来保存队员的名字.
 
-Inserting array values
+插入数组值
 ----------------------
 
 .. code-block:: sql
@@ -26,9 +26,9 @@ Inserting array values
    '{"Page", "Plant", "Jones", "Bonham"}'
    )
 
-Note that the array literals are double-quoted. Single quotes will give an error.
+注意： 数组元素值是用双引号引起来的, 如果是单引号就会出错的.
 
-Querying the table will display:
+查询出来将是这样的:
 
 .. code-block:: sql
 
@@ -38,7 +38,7 @@ Querying the table will display:
 	 Led Zeppelin | {Page,Plant,Jones,Bonham}
 	(1 row)
 
-An alternative syntax to insert is to use the array constructor:
+另一种方法是插入的时候使用数组的构造器:
 
 .. code-block:: sql
 
@@ -48,7 +48,7 @@ An alternative syntax to insert is to use the array constructor:
 	ARRAY['Barrett', 'Gilmour']
 	)
 
-When using the ARRAY constructor, the values are single-quoted.
+当使用数组构造器的时候, 数组元素是用单引号.
 
 .. code-block:: sql
 
@@ -59,10 +59,10 @@ When using the ARRAY constructor, the values are single-quoted.
 	 Pink Floyd   | {Barrett,Gilmour}
 	(2 rows)
 
-Accessing arrays
+访问数组类型
 ----------------
 
-Array values can be accessed using subscripts or slices:
+数组类型的值可以通过下标和切片的方式访问:
 
 .. code-block:: sql
 
@@ -79,12 +79,12 @@ Array values can be accessed using subscripts or slices:
    {Barrett,Gilmour}
   (2 rows)
 
-Modifying arrays
+修改数组值
 ----------------
 
-Arrays can be updated as a single element or as a whole:
+数组字段可以更新某个数组元素或者整个值:
 
-Single-element update:
+更新单个元素:
 
 .. code-block:: sql
 
@@ -96,7 +96,7 @@ Single-element update:
     Pink Floyd | {Barrett,Waters}
    (1 row)
 
-Whole array update:
+更新整个字段值:
 
 .. code-block:: sql
 
@@ -108,10 +108,10 @@ Whole array update:
     Pink Floyd | {Mason,Wright,Gilmour}
    (1 row)
 
-Searching in arrays
+在数组中搜索
 -------------------
 
-To search for an array that has a particular value, the keyword ANY is used.
+要在数组中查找某个特定元素值, 可以使用ANY关键词.
 
 .. code-block:: sql
 
@@ -126,7 +126,7 @@ To search for an array that has a particular value, the keyword ANY is used.
    ------
    (0 rows)
 
-To search if all values of the array match a value, ALL is used.
+要查找数组中所有值都匹配某个值, 可以使用ALL.
 
 .. note::
     Article contributed by

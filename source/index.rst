@@ -14,8 +14,23 @@ Postgres 指南
 比如 `Heroku Postgres <http://postgres.heroku.com>`_.
 
 
+.. note::
+
+    **英文原版**
+
+        - 地址: `Postgres Guide <http://postgresguide.com/>`_
+        - 作者: `Craig Kerstiens <https://github.com/craigkerstiens>`_
+        - 项目地址: `Github <https://github.com/craigkerstiens/postgresguide.com>`_
+
+    **中文版**
+
+        - 地址: `Postgres 指南 <http://pgguide.lxneng.com/>`_
+        - 作者: `lxneng(Eric Lo) <http://lxneng.com>`_
+        - 项目地址: `Github <https://github.com/lxneng/postgresguide.com>`_
+
+
 历史简介
-~~~~~~~~~~~~
+-----------
 
 最近几年Postgres的关注度变得越来越高. 它加快了Postgres的发展步伐, 与此同时其他
 的关系数据库系统的发展放缓. 在数据库领域中 
@@ -24,7 +39,8 @@ Postgres 指南
 Postgres的实现始于 `1986 <http://www.pgsqldb.org/pgsqldoc-8.1c/history.html>`_
 年.
 
-指南:
+目录
+------
 
 .. toctree::
    :maxdepth: 2

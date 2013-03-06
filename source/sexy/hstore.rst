@@ -1,25 +1,25 @@
-HStore
-######
+HStore数据类型
+==================
 
-What is it
+这是什么?
 ----------
 
-HStore is a key value store within Postgres. You can use it similar to how you would use a dictionary within another language, though it's specific to a column on a row.
+HStore 一种Postgres内置的键值对结构的数据类型, 你可以使用类似于其他编程语言中的字典结构保存在一条记录中的某一列中.
 
-Enabling HStore
+开启HStore
 ---------------
 
-To enable HStore on your database you run:
+在你的数据库上执行下面的命令来启用HStore:
 
 .. code-block:: sql
 
    CREATE EXTENSION hstore;
 
 
-Creating an hStore column
+创建一个HStore的字段
 -------------------------
 
-To create a field in a table with the hstore datatype simply use hstore as the column type:
+在创建表是只要指定这个字段的数据类型为hstore就可以了:
 
 .. code-block:: sql
 
@@ -29,10 +29,10 @@ To create a field in a table with the hstore datatype simply use hstore as the c
      attributes hstore
    );
 
-Inserting data
+插入数据
 --------------
 
-To insert data you would include it all within single quotes as you would for a text field. The difference with hstore is some extra structure so it knows how to create the dictionary:
+把字段的值用单引号包含一来， 不同的就是要知道创建字典的一些额外的结构:
 
 .. code-block:: sql
 
@@ -43,7 +43,7 @@ To insert data you would include it all within single quotes as you would for a 
     category  => fiction'
    );
 
-Retrieving data
+读取数据
 ---------------
 
 .. code-block:: sql
